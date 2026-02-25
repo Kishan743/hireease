@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <h2 class="mb-4 text-center">Post Your Skill</h2>
+
+        <form method="POST">
+
+            <div class="mb-3">
+                <input type="text" name="title" placeholder="Skill Title (e.g., Electrician)" 
+                       required class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <textarea name="description" placeholder="Describe your experience"
+                          required class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="district" placeholder="District"
+                       required class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <select name="availability" required class="form-control">
+                    <option value="">Select Availability</option>
+                    <option value="Available">Available</option>
+                    <option value="Not Available">Not Available</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Post Skill
+            </button>
+
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/dashboard" class="btn btn-secondary btn-sm">Back to Dashboard</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

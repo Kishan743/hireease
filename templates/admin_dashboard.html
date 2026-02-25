@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Admin Dashboard</h2>
+
+<div class="card mb-3"><div class="card-body">Total Users: {{ total_users }}</div></div>
+<div class="card mb-3"><div class="card-body">Workers: {{ total_workers }}</div></div>
+<div class="card mb-3"><div class="card-body">Employers: {{ total_employers }}</div></div>
+
+<div class="card mb-3"><div class="card-body">Total Jobs: {{ total_jobs }}</div></div>
+<div class="card mb-3"><div class="card-body">Open Jobs: {{ open_jobs }}</div></div>
+<div class="card mb-3"><div class="card-body">Closed Jobs: {{ closed_jobs }}</div></div>
+
+<div class="card mb-3"><div class="card-body">Total Applications: {{ total_applications }}</div></div>
+<div class="card mb-3"><div class="card-body">Accepted: {{ accepted }}</div></div>
+<div class="card mb-3"><div class="card-body">Rejected: {{ rejected }}</div></div>
+
+{% endblock %}

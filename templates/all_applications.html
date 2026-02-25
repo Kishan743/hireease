@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>All Applications</h2>
+
+{% for app in applications %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>Job: {{ app[0] }}</h5>
+            <p>Worker: {{ app[1] }}</p>
+            <p>Contact: {{ app[2] }}</p>
+            <p>Status: {{ app[3] }}</p>
+        </div>
+    </div>
+{% endfor %}
+
+{% if not applications %}
+    <p>No applications received yet.</p>
+{% endif %}
+
+{% endblock %}

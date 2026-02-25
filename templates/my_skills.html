@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>My Skills</h2>
+
+{% for skill in skills %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>{{ skill[1] }}</h5>
+            <p>District: {{ skill[2] }}</p>
+            <p>Availability: {{ skill[3] }}</p>
+            <a href="/delete_skill/{{ skill[0] }}" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+h1 {
+    color: #333;
+}
+
+form input {
+    padding: 8px;
+    width: 250px;
+}
+
+button {
+    padding: 8px;
+}
+
+ul {
+    margin-top: 20px;
+}
+
+li {
+    background: white;
+    margin: 5px 0;
+    padding: 10px;
+    list-style: none;
+}

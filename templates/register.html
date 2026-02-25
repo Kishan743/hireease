@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Register</h2>
+
+<form method="POST">
+
+    <input type="text" name="name" placeholder="Full Name" required class="form-control mb-2">
+
+    <select name="role" id="roleSelect" required class="form-control mb-2">
+        <option value="">Select Role</option>
+        <option value="worker">Worker</option>
+        <option value="employer">Employer</option>
+    </select>
+
+    <div id="experienceField" style="display:none;">
+        <select name="experience" class="form-control mb-2">
+            <option value="">Select Experience Level</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+        </select>
+    </div>
+
+    <input type="text" name="contact" placeholder="Contact Number" required class="form-control mb-2">
+
+    <input type="password" name="password" placeholder="Password" required class="form-control mb-2">
+
+    <button type="submit" class="btn btn-success">Register</button>
+
+</form>
+
+<script>
+document.getElementById("roleSelect").addEventListener("change", function() {
+    if (this.value === "worker") {
+        document.getElementById("experienceField").style.display = "block";
+    } else {
+        document.getElementById("experienceField").style.display = "none";
+    }
+});
+</script>
+
+{% endblock %}

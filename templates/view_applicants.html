@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <h2 class="mb-4 text-center">Applicants</h2>
+
+        {% for app in applications %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>{{ app[0] }}</h5>
+                <p>Contact: {{ app[1] }}</p>
+                <p>Status: {{ app[2] }}</p>
+
+                {% if app[2] == "Pending" %}
+                    <a href="/update_application/{{ app[3] }}/accept"
+                       class="btn btn-success btn-sm">Accept</a>
+                    <a href="/update_application/{{ app[3] }}/reject"
+                       class="btn btn-danger btn-sm">Reject</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

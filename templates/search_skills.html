@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <h2 class="mb-4 text-center">Search Workers</h2>
+
+        <form method="GET" class="mb-4">
+            <input type="text" name="skill" placeholder="Search by Skill" class="form-control mb-2">
+            <input type="text" name="district" placeholder="Search by District" class="form-control mb-2">
+            <button type="submit" class="btn btn-primary w-100">Search</button>
+        </form>
+
+        {% for skill in results %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>{{ skill[0] }}</h5>
+                <p>{{ skill[1] }}</p>
+                <p><strong>District:</strong> {{ skill[2] }}</p>
+                <p><strong>Availability:</strong> {{ skill[3] }}</p>
+                <p><strong>Name:</strong>
+                    <a href="/worker/{{ skill[6] }}">{{ skill[4] }}</a>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

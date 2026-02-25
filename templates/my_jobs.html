@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+
+        <h2 class="mb-4 text-center">My Jobs</h2>
+
+        {% for job in jobs %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>{{ job[1] }}</h5>
+                <p>Status: {{ job[2] }}</p>
+
+                {% if job[2] == "Open" %}
+                    <a href="/close_job/{{ job[0] }}" class="btn btn-danger btn-sm">Close</a>
+                {% endif %}
+
+                <a href="/view_applicants/{{ job[0] }}" class="btn btn-info btn-sm">
+                    View Applicants
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
