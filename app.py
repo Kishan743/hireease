@@ -43,17 +43,7 @@ def init_db():
         )
     """)
 
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS jobs (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            title TEXT,
-            description TEXT,
-            district TEXT,
-            required_skill TEXT,
-            status TEXT
-        )
-    """)
+   
     c.execute("""
         CREATE TABLE IF NOT EXISTS applications (
            id INTEGER PRIMARY KEY AUTOINCREMENT,
