@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="row justify-content-center">
-    <div class="col-md-8">
+<div class="card shadow-sm rounded-4 mb-4">
+    <div class="card-body">
 
         <h2 class="mb-4 text-center">My Jobs</h2>
 
@@ -10,7 +9,11 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h5>{{ job[1] }}</h5>
-                <p>Status: {{ job[2] }}</p>
+                {% if job[2] == "Open" %}
+                    <span class="badge-open">Open</span>
+                {% else %}
+                    <span class="badge-closed">Closed</span>
+                {% endif %}
 
                 {% if job[2] == "Open" %}
                     <a href="/close_job/{{ job[0] }}" class="btn btn-danger btn-sm">Close</a>

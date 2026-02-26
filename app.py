@@ -471,25 +471,28 @@ def my_applications():
 
 @app.route("/all_applications")
 def all_applications():
-    if "user_id" not in session or session["role"] != "employer":
-        return redirect("/login")
+    if session["role"] != "employer":
+        return redirect("/dashboard")
 
     conn = sqlite3.connect("hireease.db")
     c = conn.cursor()
 
     c.execute("""
-        SELECT jobs.title, users.name, users.contact, applications.status
+        SELECT 
+            applications.id,
+            jobs.title,
+            users.name,
+            applications.status
         FROM applications
         JOIN jobs ON applications.job_id = jobs.id
         JOIN users ON applications.worker_id = users.id
-        WHERE jobs.user_id=?
+        WHERE jobs.user_id = ?
     """, (session["user_id"],))
 
     applications = c.fetchall()
     conn.close()
 
     return render_template("all_applications.html", applications=applications)
-
 @app.route("/admin")
 def admin_dashboard():
     if "user_id" not in session or session.get("role") != "admin":

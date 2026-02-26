@@ -2,57 +2,67 @@
 {% block content %}
 
 <div class="row justify-content-center">
-    <div class="col-md-6">
+  <div class="col-lg-7">
 
-        <div class="card shadow p-4">
-            <h3 class="text-center mb-4">Post a Job Opportunity</h3>
+    <div class="card p-4">
+      <h2 class="text-center mb-4 fw-semibold">Create a New Job Opportunity</h2>
+      <p class="text-muted text-center mb-4">
+        Fill in the details below to attract the right talent.
+      </p>
 
-            <form method="POST">
+      <form method="POST">
 
-                <div class="mb-3">
-                    <label class="form-label">Job Title</label>
-                    <input type="text" name="title" class="form-control" 
-                           placeholder="e.g. Electrician Needed" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <textarea name="description" class="form-control" rows="4"
-                              placeholder="Describe the job details" required></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">District</label>
-                    <input type="text" name="district" class="form-control"
-                           placeholder="Job Location District" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Required Skill</label>
-                    <input type="text" name="required_skill" class="form-control"
-                           placeholder="e.g. Carpentry" required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Maximum Hires</label>
-                    <input type="number" name="max_hires" class="form-control"
-                           min="1" value="1" required>
-                </div>
-
-                <button type="submit" class="btn btn-success w-100">
-                    Post Job
-                </button>
-
-            </form>
-
-            <div class="text-center mt-3">
-                <a href="/dashboard" class="btn btn-secondary btn-sm">
-                    Back to Dashboard
-                </a>
-            </div>
+        <div class="mb-4">
+          <label class="form-label fw-medium">Job Title</label>
+          <input type="text" name="title" class="form-control"
+                 placeholder="Example: Electrician for Home Wiring" required>
+          <div class="form-text">Keep it clear and specific.</div>
         </div>
 
+        <div class="mb-4">
+          <label class="form-label fw-medium">Job Description</label>
+          <textarea name="description" class="form-control"
+                    rows="4"
+                    placeholder="Explain the work, duration, salary, and expectations"
+                    required></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <label class="form-label fw-medium">District</label>
+            <input type="text" name="district" class="form-control"
+                   placeholder="Location District" required>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <label class="form-label fw-medium">Required Skill</label>
+            <input type="text" name="required_skill" class="form-control"
+                   placeholder="Carpentry / Plumbing / Teaching" required>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-medium">Maximum Hires</label>
+          <input type="number" name="max_hires"
+                 class="form-control" min="1" value="1" required>
+          <div class="form-text">Number of workers you want to hire.</div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 py-2">
+          Publish Job
+        </button>
+
+      </form>
+
+      <div class="text-center mt-4">
+        <a href="/dashboard" class="text-decoration-none text-muted">
+          ← Back to Dashboard
+        </a>
+      </div>
+
     </div>
+
+  </div>
 </div>
 
 {% endblock %}

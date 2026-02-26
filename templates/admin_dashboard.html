@@ -1,18 +1,68 @@
-{% extends "base.html" %}
-{% block content %}
+<h2 class="section-title">Admin Dashboard</h2>
 
-<h2>Admin Dashboard</h2>
+<div class="row g-4">
 
-<div class="card mb-3"><div class="card-body">Total Users: {{ total_users }}</div></div>
-<div class="card mb-3"><div class="card-body">Workers: {{ total_workers }}</div></div>
-<div class="card mb-3"><div class="card-body">Employers: {{ total_employers }}</div></div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Total Users</h5>
+      <h3 class="mt-2">{{ total_users }}</h3>
+    </div>
+  </div>
 
-<div class="card mb-3"><div class="card-body">Total Jobs: {{ total_jobs }}</div></div>
-<div class="card mb-3"><div class="card-body">Open Jobs: {{ open_jobs }}</div></div>
-<div class="card mb-3"><div class="card-body">Closed Jobs: {{ closed_jobs }}</div></div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Workers</h5>
+      <h3 class="mt-2">{{ total_workers }}</h3>
+    </div>
+  </div>
 
-<div class="card mb-3"><div class="card-body">Total Applications: {{ total_applications }}</div></div>
-<div class="card mb-3"><div class="card-body">Accepted: {{ accepted }}</div></div>
-<div class="card mb-3"><div class="card-body">Rejected: {{ rejected }}</div></div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Employers</h5>
+      <h3 class="mt-2">{{ total_employers }}</h3>
+    </div>
+  </div>
 
-{% endblock %}
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Total Jobs</h5>
+      <h3 class="mt-2">{{ total_jobs }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Open Jobs</h5>
+      <h3 class="mt-2">{{ open_jobs }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Closed Jobs</h5>
+      <h3 class="mt-2">{{ closed_jobs }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Total Applications</h5>
+      <h3 class="mt-2">{{ total_applications }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Accepted</h5>
+      <h3 class="mt-2">{{ accepted }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card text-center">
+      <h5>Rejected</h5>
+      <h3 class="mt-2">{{ rejected }}</h3>
+    </div>
+  </div>
+
+</div>
