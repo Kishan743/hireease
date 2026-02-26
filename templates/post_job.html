@@ -1,17 +1,58 @@
-<h2>Post Job Opportunity</h2>
+{% extends "base.html" %}
+{% block content %}
 
-<form method="POST">
-    <input type="text" name="title" placeholder="Job Title" required><br><br>
+<div class="row justify-content-center">
+    <div class="col-md-6">
 
-    <textarea name="description" placeholder="Job Description" required></textarea><br><br>
+        <div class="card shadow p-4">
+            <h3 class="text-center mb-4">Post a Job Opportunity</h3>
 
-    <input type="text" name="district" placeholder="District" required><br><br>
+            <form method="POST">
 
-    <input type="text" name="required_skill" placeholder="Required Skill" required><br><br>
+                <div class="mb-3">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" name="title" class="form-control" 
+                           placeholder="e.g. Electrician Needed" required>
+                </div>
 
-    <input type="number" name="max_hires" placeholder="Number of workers needed" required><br><br>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="description" class="form-control" rows="4"
+                              placeholder="Describe the job details" required></textarea>
+                </div>
 
-    <button type="submit">Post Job</button>
-</form>
+                <div class="mb-3">
+                    <label class="form-label">District</label>
+                    <input type="text" name="district" class="form-control"
+                           placeholder="Job Location District" required>
+                </div>
 
-<a href="/dashboard">Back</a>
+                <div class="mb-3">
+                    <label class="form-label">Required Skill</label>
+                    <input type="text" name="required_skill" class="form-control"
+                           placeholder="e.g. Carpentry" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Maximum Hires</label>
+                    <input type="number" name="max_hires" class="form-control"
+                           min="1" value="1" required>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">
+                    Post Job
+                </button>
+
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="/dashboard" class="btn btn-secondary btn-sm">
+                    Back to Dashboard
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
