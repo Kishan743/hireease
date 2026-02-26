@@ -120,6 +120,7 @@ def login():
 
 @app.route("/accept/<int:app_id>")
 def accept(app_id):
+
     if "user_id" not in session or session["role"] != "employer":
         return redirect("/login")
 
@@ -129,21 +130,23 @@ def accept(app_id):
     # Accept application
     c.execute("UPDATE applications SET status='Accepted' WHERE id=?", (app_id,))
 
-    # Get job_id for this application
+    # Get job_id
     c.execute("SELECT job_id FROM applications WHERE id=?", (app_id,))
-    job_id = c.fetchone()[0]
+    job = c.fetchone()
 
-    # Count accepted applicants
-    c.execute("SELECT COUNT(*) FROM applications WHERE job_id=? AND status='Accepted'", (job_id,))
-    accepted_count = c.fetchone()[0]
+    if job:
+        job_id = job[0]
 
-    # Get max_hires
-    c.execute("SELECT max_hires FROM jobs WHERE id=?", (job_id,))
-    max_hires = c.fetchone()[0]
+        # Count accepted
+        c.execute("SELECT COUNT(*) FROM applications WHERE job_id=? AND status='Accepted'", (job_id,))
+        accepted_count = c.fetchone()[0]
 
-    # If max reached, close job
-    if accepted_count >= max_hires:
-        c.execute("UPDATE jobs SET status='Closed' WHERE id=?", (job_id,))
+        # Get max_hires
+        c.execute("SELECT max_hires FROM jobs WHERE id=?", (job_id,))
+        max_hires = c.fetchone()[0]
+
+        if accepted_count >= max_hires:
+            c.execute("UPDATE jobs SET status='Closed' WHERE id=?", (job_id,))
 
     conn.commit()
     conn.close()
