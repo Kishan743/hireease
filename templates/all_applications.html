@@ -4,14 +4,18 @@
 <h2>All Applications</h2>
 
 {% for app in applications %}
-    <div class="card mb-3">
-        <div class="card-body">
-            <h5>Job: {{ app[0] }}</h5>
-            <p>Worker: {{ app[1] }}</p>
-            <p>Contact: {{ app[2] }}</p>
-            <p>Status: {{ app[3] }}</p>
-        </div>
-    </div>
+<div class="card mb-3 p-3">
+
+    <h5>{{ app[1] }}</h5>
+    <p>Worker: {{ app[2] }}</p>
+    <p>Status: {{ app[3] }}</p>
+
+    {% if app[3] == "Pending" %}
+        <a href="/accept/{{ app[0] }}" class="btn btn-success btn-sm">Accept</a>
+        <a href="/reject/{{ app[0] }}" class="btn btn-danger btn-sm">Reject</a>
+    {% endif %}
+
+</div>
 {% endfor %}
 
 {% if not applications %}
