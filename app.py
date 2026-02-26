@@ -120,7 +120,10 @@ def login():
 
             return redirect("/dashboard")
 
-        return "Invalid credentials"
+        from flask import flash
+
+        flash("Invalid contact number or password", "danger")
+        return redirect("/login")
 
     return render_template("login.html")
 @app.route("/dashboard")
